@@ -1,0 +1,17 @@
+class Solution {
+    public int minCostClimbingStairs(int[] cost) {
+        int n=cost.length;
+        int[] dp=new int[n+1];
+        Arrays.fill(dp,-1);
+        
+        return func(cost,dp,n);
+    }
+    public int func(int[] cost,int[] dp,int n){
+        
+
+        if(n<=1) return 0;
+        if(dp[n]!=-1) return dp[n];
+        return dp[n]=Math.min(func(cost,dp,n-1)+cost[n-1],func(cost,dp,n-2)+cost[n-2]);
+
+    }
+}
